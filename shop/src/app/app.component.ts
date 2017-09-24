@@ -4,6 +4,7 @@ import { Product } from './product';
 import { ProductsServiceService } from './products-service.service';
 import { CartService } from './cart/cart.service';
 import { CartComponent } from './cart/cart.component';
+import { Category } from './product';
 
 @Component({
   selector: 'app-root',
@@ -29,5 +30,10 @@ export class AppComponent implements OnInit {
     var productToBuy = this.products.find(prod => prod.name == productName);
     this.cartService.addProducts(productToBuy);
     this.cart.refreshProductsInCart();
+  }
+
+  getCategoryName(id:number):any
+  {
+        return Category[id];
   }
 }

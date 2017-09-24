@@ -25,7 +25,7 @@
       </h3> 
     </li>
     <li>
-      <h3>Category : {{product.category}}</h3>
+      <h3>Category : {{getCategoryName(product.category)}}</h3> 
     </li>
     <li>
       <h3>Ingredients :</h3>
@@ -40,7 +40,9 @@
       </div>
     </li>
   </ul>
-<button (click)="onBuy(product.name)">Buy now!</button>
+  <div *ngIf="product.isAvailable">
+    <button (click)="onBuy(product.name)">Buy now!</button>
+  </div>  
 </div>
 
 

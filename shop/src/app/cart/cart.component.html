@@ -1,9 +1,16 @@
-<div *ngIf="products.length > 0">
+<div *ngIf="products.length > 0" >
 <div>
   <h2>Products In Cart:</h2>
 </div>
-
-<div *ngFor="let product of products" class = "align-right">
-    Name : {{product.name}} / Price : {{product.price}}
-</div>
+    <table >
+        <tr>
+          <th style="width:130px">Name</th>
+          <th style="width:130px">Price</th>
+        </tr>
+        <tr *ngFor="let product of products">
+          <td style="width:130px">{{product.name}}</td>
+          <td style="width:130px">{{product.price}}</td>
+        </tr>
+    </table> 
+    <div>Total : {{getTotals() | number}}</div>
 </div> 

@@ -20,7 +20,7 @@ export class ProductsServiceService {
       },
       {
         name: "Pickles", 
-        description: "Best world pasta! Buy it right now!", 
+        description: "Outstanding Pickles! Try now!", 
         price: 3.05, 
         isAvailable: true, 
         category: Category.Grocery, 
@@ -30,11 +30,20 @@ export class ProductsServiceService {
       {
         name: "Coca-cola", 
         description: "Just Coca-cola", 
-        price: 4.50, 
+        price: 4.59, 
         isAvailable: true, 
         category: Category.Drinks, 
         ingredients:["Carbonated water", "Sugar", "Caffeine", "Phosphoric acid", "Natural flavorings"], 
         equivalents:["Pepsi"]
+      },
+      {
+        name: "Apple juice", 
+        description: "Pure apples here.", 
+        price: 1.99, 
+        isAvailable: false, 
+        category: Category.Drinks, 
+        ingredients:["Apples", "Sugar", "Water"], 
+        equivalents:["none"]
       }    
     ];
   }

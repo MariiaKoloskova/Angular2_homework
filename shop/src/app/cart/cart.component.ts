@@ -20,4 +20,13 @@ export class CartComponent {
  {
    this.products = this.cartService.getProducts();
  }
+
+ getTotals(): number {
+  var total = 0;
+  this.cartService.getProducts().forEach(function(item, i, arr) {
+    total += item.price
+  });
+
+  return total;
+ }
 }
