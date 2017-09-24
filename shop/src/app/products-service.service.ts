@@ -43,7 +43,7 @@ export class ProductsServiceService {
         isAvailable: false, 
         category: Category.Drinks, 
         ingredients:["Apples", "Sugar", "Water"], 
-        equivalents:["none"]
+        equivalents:["Orange juice", "Pineapple juice", "Cherry juice"]
       }    
     ];
   }
