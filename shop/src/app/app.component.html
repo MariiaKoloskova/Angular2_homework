@@ -6,33 +6,6 @@
 </div>
 <app-cart></app-cart>   
 
-<h2>Available products info : </h2>
-<div *ngFor="let product of products">
-  <ul>
-    <li>
-      <h2>Name : {{product.name}}
-          <div *ngIf="product.isAvailable">
-              <button (click)="onBuy(product.name)">Buy</button>
-          </div> 
-      </h2>
-   
-      <h3>Description : {{product.description}}</h3>
-      <h3>Price : {{product.price}}</h3>
-      <h3>Available in store : <div *ngIf="product.isAvailable; then thenBlock else elseBlock"></div>   
-        <ng-template #thenBlock>Available</ng-template>  
-        <ng-template #elseBlock>Not Available</ng-template>
-      </h3> 
-      <h3>Category : {{getCategoryName(product.category)}}</h3>   
-      <h3>Ingredients :</h3>
-      <div *ngFor="let ingredient of product.ingredients" style = "padding : 0px 10px">
-          {{ingredient}}
-      </div>
-      <h3>Equivalents :</h3>
-      <div *ngFor="let equivalent of product.equivalents" style = "padding : 0px 10px">
-        {{equivalent}}
-      </div>
-    </li>
-  </ul>
-</div>
+<app-productlist (selectedProduct)="buyProduct($event)"></app-productlist>
 
 

@@ -1,11 +1,12 @@
 export class Product {
-    name: string
-    description: string
+    name: string;
+    description: string;
     price: number;
     isAvailable: boolean;
     category:Category;
     ingredients: string[];
     equivalents: string[];
+    discount?:number;
 }
 
 export enum Category {
@@ -13,3 +14,4 @@ export enum Category {
     Drinks,
     Bakery,
   }
+  

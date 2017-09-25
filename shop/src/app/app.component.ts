@@ -1,39 +1,27 @@
 import { Component } from '@angular/core';
 import { OnInit, ViewChild } from '@angular/core';
-import { Product } from './product';
-import { ProductsServiceService } from './products-service.service';
+import { Product } from './products/product';
+import { Category } from './products/product';
+import { ProductsServiceService } from './products/products-service.service';
 import { CartService } from './cart/cart.service';
 import { CartComponent } from './cart/cart.component';
-import { Category } from './product';
+import { ProductListComponent } from './products/productlist.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ProductsServiceService, CartService],
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor(private productsService: ProductsServiceService, 
     private cartService: CartService){};
 
   title = 'Awesome shop';
-  products : Product[];
   @ViewChild(CartComponent) cart: CartComponent;
 
-  ngOnInit():void{
-    this.products = this.productsService.getProducts();
-  }
-
-  onBuy(productName){
-    console.log("Bingo! Somebody bougt our product!");
-    var productToBuy = this.products.find(prod => prod.name == productName);
-    this.cartService.addProducts(productToBuy);
+  buyProduct(product) {
+    this.cartService.addProducts(product);
     this.cart.refreshProductsInCart();
-  }
-
-  getCategoryName(id:number):any
-  {
-        return Category[id];
   }
 }

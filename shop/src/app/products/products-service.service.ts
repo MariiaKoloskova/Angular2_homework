@@ -16,7 +16,8 @@ export class ProductsServiceService {
         isAvailable: true, 
         category: Category.Grocery, 
         ingredients:["Durum wheat flour", "Eggs", "Water"], 
-        equivalents:["Spaghetti", "Noodles"]
+        equivalents:["Spaghetti", "Noodles"],
+        discount:1.55
       },
       {
         name: "Pickles", 
