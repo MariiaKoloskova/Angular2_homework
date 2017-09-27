@@ -1,0 +1,16 @@
+<div *ngIf="cartProducts.length > 0" >
+<div>
+  <h2>Products In Cart:</h2>
+</div>
+    <div>Total Cost : {{getTotalCost() | number}}</div>
+    <div>Products in Cart : {{getTotalCount() | number}}</div>
+    <table >
+        <tr>
+          <th style="width:130px">Name</th>
+          <th style="width:130px">Price</th>
+          <th style="width:130px">Quantity</th>
+          <th style="width:170px"></th>
+        </tr>
+    </table>
+    <app-cart-item *ngFor="let product of cartProducts" [product]="product" (productToRemove)="removeProduct($event)"></app-cart-item>
+</div> 

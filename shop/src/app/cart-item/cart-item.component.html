@@ -1,0 +1,13 @@
+
+<table [ngClass]="cls">
+  <tr>
+  <td style="width:130px">{{product.product.name}}</td>
+  <td style="width:130px">{{product.product.price}}</td>
+  <td style="width:130px">{{product.quantity}}</td>
+  <td style="width:170px">
+    <button (click)="increaseQuantity()">+</button>
+    <button (click)="decreaseQuantity()" [disabled]="product.quantity == 1">-</button>
+    <button (click)="removeProduct(product)">remove item</button>
+  </td>
+</tr>
+</table>

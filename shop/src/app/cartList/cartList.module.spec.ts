@@ -1,4 +1,4 @@
-import { CartModule } from './cart.module';
+import { CartModule } from './cartList.module';
 
 describe('CartModule', () => {
   let cartModule: CartModule;
