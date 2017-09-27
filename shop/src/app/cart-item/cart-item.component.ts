@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { Product } from '../products/product';
 import { CartProduct } from './cart-product';
 
@@ -6,10 +6,6 @@ import { CartProduct } from './cart-product';
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css'],
-  host: {
-    '(mouseenter)': 'mouseenter()',
-    '(mouseleave)': 'mouseleave()'
-  }
 })
 export class CartItemComponent implements OnInit {
 
@@ -23,6 +19,12 @@ export class CartItemComponent implements OnInit {
   cls: string = "";
 
   ngOnInit() {
+    this.product.quantity = 1;
+  }
+
+  ngOnDestroy(): void {
+    alert("You removed " + this.product.product.name + " from cart.");
+    console.log('Cart item destroyed :(');
   }
 
   increaseQuantity(){
@@ -40,11 +42,11 @@ export class CartItemComponent implements OnInit {
     this.productToRemove.emit(product);
   }
 
-  mouseenter(): void {
+  @HostListener('mouseenter', ['$event']) onMouseEnter(event) {
     this.cls = "filled";
   }
 
-  mouseleave(): void {
+  @HostListener('mouseleave', ['$event']) onMouseLeave(event) {
     this.cls = "";
   }
 }

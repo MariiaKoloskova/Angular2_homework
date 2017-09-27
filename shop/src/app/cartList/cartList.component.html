@@ -9,7 +9,7 @@
           <th style="width:130px">Name</th>
           <th style="width:130px">Price</th>
           <th style="width:130px">Quantity</th>
-          <th style="width:170px"></th>
+          <th style="width:170px">Actions</th>
         </tr>
     </table>
     <app-cart-item *ngFor="let product of cartProducts" [product]="product" (productToRemove)="removeProduct($event)"></app-cart-item>

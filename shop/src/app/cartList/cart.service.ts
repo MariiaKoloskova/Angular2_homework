@@ -23,7 +23,6 @@ export class CartService {
     } else {
       var cartProd : CartProduct = new CartProduct;
       cartProd.product = product;
-      cartProd.quantity = 1;
       this.cartProducts.push(cartProd);
     }
   }

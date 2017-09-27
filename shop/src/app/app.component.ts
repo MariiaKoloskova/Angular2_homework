@@ -23,12 +23,5 @@ export class AppComponent {
   buyProduct(product) {
     this.cartService.addProducts(product);
     this.cart.refreshProductsInCart();
-    var xxxMap = {};
-    
-    xxxMap['key1'] = 'value 1';
-    xxxMap['key2'] = 5;
-    console.log("Key 1 : " + xxxMap['key1'] + "  " + Object.keys(xxxMap).length);
-    delete xxxMap['key1'];
-    console.log(Object.keys(xxxMap).length);
   }
 }
