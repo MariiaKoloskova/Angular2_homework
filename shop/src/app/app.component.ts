@@ -8,11 +8,19 @@ import { CartListComponent } from './cartList/cartList.component';
 import { ProductListComponent } from './products/productlist.component';
 import { ConfigOptionsService } from './config-options/config-options.service';
 import { LocalStorageService } from './local-storage/local-storage.service';
+import { Random, GeneratorFactory } from './generator/generator-factory';
+import { GeneratorService } from './generator/generator.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[ 
+    { 
+      provide: Random, 
+      useFactory:  GeneratorFactory(3), 
+      deps: [GeneratorService] 
+  } ] 
 })
 
 export class AppComponent {
