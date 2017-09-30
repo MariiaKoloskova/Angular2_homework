@@ -2,14 +2,14 @@
 <div *ngFor="let product of products">
   <ul>
     <li>
-      <h2>Name : {{product.name}}
+      <h2>Name : {{product.name | uppercase}}
         <div *ngIf="product.isAvailable">
             <button (click)="onBuy(product)">Buy</button>
         </div> 
       </h2>
       
       <h3>Description : {{product.description}}</h3>
-      <h3>Price : {{product.price}}</h3>
+      <h3>Price : {{product.price| currency:'UAH':false}}</h3>
       <div *ngIf="product.discount != null" >
         <h3>Discount : {{product.discount}}</h3>
       </div> 

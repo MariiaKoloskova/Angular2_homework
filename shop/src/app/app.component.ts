@@ -10,6 +10,7 @@ import { ConfigOptionsService } from './config-options/config-options.service';
 import { LocalStorageService } from './local-storage/local-storage.service';
 import { Random, GeneratorFactory } from './generator/generator-factory';
 import { GeneratorService } from './generator/generator.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,8 @@ export class AppComponent {
   ){};
 
   title = 'Awesome shop';
+  currentDay: string = new DatePipe("en").transform(Date.now(), "EEEE");
+  
   @ViewChild(CartListComponent) cart: CartListComponent;
 
   buyProduct(product) {

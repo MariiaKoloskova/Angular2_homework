@@ -4,11 +4,13 @@ import { Product } from '../products/product';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { CartProduct } from '../cart-item/cart-product';
 import { GeneratorService } from '../generator/generator.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cartList',
   templateUrl: './cartList.component.html',
   styleUrls: ['./cartList.component.css'],
+  providers:[CurrencyPipe]
 })
 
 export class CartListComponent {

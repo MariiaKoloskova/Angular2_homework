@@ -2,7 +2,7 @@
 <table [ngClass]="cls">
   <tr>
   <td style="width:130px">{{product.product.name}}</td>
-  <td style="width:130px">{{product.product.price}}</td>
+  <td style="width:130px">{{product.product.price | currency:'UAH':false}}</td>
   <td style="width:130px">{{product.quantity}}</td>
   <!--<td style="width:130px"><input style="width:125px" type="number" min="1" name="quantityInput" (change)="onChangeQuantity()" value="{{product.quantity}}"></td> -->
   <td style="width:170px">

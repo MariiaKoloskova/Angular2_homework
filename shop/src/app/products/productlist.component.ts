@@ -2,12 +2,13 @@ import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { Product } from './product';
 import { Category } from './product';
 import { ProductsServiceService } from './products-service.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-productlist',
   templateUrl: './productlist.component.html',
   styleUrls: ['./productlist.component.css'],
-  providers: [ProductsServiceService]
+  providers: [ProductsServiceService, CurrencyPipe]
 })
 
 export class ProductListComponent implements OnInit {
