@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CartListComponent } from './cartList/cartList.component';
 import { ProductsModule } from './products/products.module';
 import { ConstantsService } from './constants/constants.service';
+import { GeneratorFactory, Random } from './generator/generator-factory';
+import { GeneratorService } from './generator/generator.service';
 
 
 @NgModule({
@@ -17,7 +19,17 @@ import { ConstantsService } from './constants/constants.service';
     CartModule,
     ProductsModule
   ],
-  providers: [ProductsServiceService, {provide: ConstantsService, useValue : { App: "TaskManager", Ver: "1.0" }}],
+  providers: [
+    ProductsServiceService, 
+    {
+      provide: ConstantsService, 
+      useValue : { App: "TaskManager", Ver: "1.0" }
+    },
+    { provide: Random, 
+      useFactory:  GeneratorFactory(3), 
+      deps: [GeneratorService] 
+    } 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
