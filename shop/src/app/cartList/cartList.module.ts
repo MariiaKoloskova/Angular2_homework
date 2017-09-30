@@ -4,14 +4,15 @@ import { CartListComponent } from './cartList.component';
 import { CartService } from './cart.service';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { FontDirective } from '../directives/font-directive';
+import { OrderPipe } from './order-pipe';
 
 @NgModule({
   imports: [
     BrowserModule
   ],
-  
+
   providers:[CartService],
-  declarations: [CartListComponent, CartItemComponent, FontDirective],
+  declarations: [CartListComponent, CartItemComponent, FontDirective, OrderPipe],
   bootstrap: [CartListComponent],
   exports: [CartListComponent]
 })

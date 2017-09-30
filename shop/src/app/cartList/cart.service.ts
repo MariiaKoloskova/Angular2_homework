@@ -53,7 +53,9 @@ export class CartService {
   }
 
   getTotalCost(): number {
-    return this.cartProducts.map(p => p.product.price * p.quantity).reduce((a, b) => a + b);
+    if (this.cartProducts.length > 0)
+      return this.cartProducts.map(p => p.product.price * p.quantity).reduce((a, b) => a + b);
+    return 0;
    }
 
    getTotalCount(): number {

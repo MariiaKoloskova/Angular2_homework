@@ -13,5 +13,5 @@
           <th style="width:170px">Actions</th>
         </tr>
     </table>
-    <app-cart-item *ngFor="let product of cartProducts" [product]="product" (updateTotals)="updateTotals($event)"></app-cart-item>
+    <app-cart-item *ngFor="let product of cartProducts | order :'name':true" [product]="product" (updateTotals)="updateTotals($event)"></app-cart-item>
 </div> 

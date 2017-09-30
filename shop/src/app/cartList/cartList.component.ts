@@ -5,6 +5,7 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 import { CartProduct } from '../cart-item/cart-product';
 import { GeneratorService } from '../generator/generator.service';
 import { CurrencyPipe } from '@angular/common';
+import { OrderPipe } from './order-pipe';
 
 @Component({
   selector: 'app-cartList',
