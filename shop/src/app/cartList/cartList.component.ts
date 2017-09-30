@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { CartService } from './cart.service';
 import { Product } from '../products/product';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { CartProduct } from '../cart-item/cart-product';
+import { GeneratorService } from '../generator/generator.service';
 
 @Component({
   selector: 'app-cartList',
@@ -12,7 +13,10 @@ import { CartProduct } from '../cart-item/cart-product';
 
 export class CartListComponent {
 
-  constructor(private cartListService: CartService) {}
+  constructor(
+    private cartListService: CartService,
+    @Optional() private generatorService: GeneratorService, 
+    ) {}
 
   cartProducts: CartProduct[] = new Array<CartProduct>();
   cartProductsCount:number;

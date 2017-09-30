@@ -23,7 +23,7 @@ import { GeneratorService } from './generator/generator.service';
     ProductsServiceService, 
     {
       provide: ConstantsService, 
-      useValue : { App: "TaskManager", Ver: "1.0" }
+      useValue : { App: "AwesomeShop", Ver: "1.3" }
     },
     { provide: Random, 
       useFactory:  GeneratorFactory(3), 

@@ -1,7 +1,8 @@
-import { Component, OnInit, Input,Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener, Optional } from '@angular/core';
 import { Product } from '../products/product';
 import { CartProduct } from './cart-product';
 import { CartService } from '../cartList/cart.service';
+import { ConstantsService } from '../constants/constants.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -11,7 +12,10 @@ import { CartService } from '../cartList/cart.service';
 
 export class CartItemComponent implements OnInit {
 
-  constructor(private cartListService: CartService) { }
+  constructor(
+    private cartListService: CartService,
+    @Optional() private constantService: ConstantsService
+    ) { }
 
   @Output()
   updateTotals: EventEmitter<any> = new EventEmitter<any>();
