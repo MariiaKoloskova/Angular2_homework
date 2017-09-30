@@ -8,11 +8,13 @@ import { ProductsModule } from './products/products.module';
 import { ConstantsService } from './constants/constants.service';
 import { GeneratorFactory, Random } from './generator/generator-factory';
 import { GeneratorService } from './generator/generator.service';
+import { FontDirective } from './directives/font-directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // FontDirective
   ],
   imports: [
     BrowserModule,
@@ -25,10 +27,10 @@ import { GeneratorService } from './generator/generator.service';
       provide: ConstantsService, 
       useValue : { App: "AwesomeShop", Ver: "1.3" }
     },
-    { provide: Random, 
-      useFactory:  GeneratorFactory(3), 
-      deps: [GeneratorService] 
-    } 
+    // { provide: Random, 
+    //   useFactory:  GeneratorFactory(3), 
+    //   deps: [GeneratorService] 
+    // } 
   ],
   bootstrap: [AppComponent]
 })
