@@ -1,17 +1,20 @@
-import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, OnInit, Input,Output, EventEmitter, HostListener } from '@angular/core';
 import { Product } from '../products/product';
 import { CartProduct } from './cart-product';
+import { CartService } from '../cartList/cart.service';
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css'],
 })
+
 export class CartItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cartListService: CartService) { }
+
   @Output()
-  productToRemove: EventEmitter<CartProduct> = new EventEmitter<CartProduct>();
+  updateTotals: EventEmitter<any> = new EventEmitter<any>();
   
   @Input()
   product: CartProduct;
@@ -20,6 +23,7 @@ export class CartItemComponent implements OnInit {
 
   ngOnInit() {
     this.product.quantity = 1;
+    this.updateTotals.emit();
   }
 
   ngOnDestroy(): void {
@@ -28,18 +32,20 @@ export class CartItemComponent implements OnInit {
   }
 
   increaseQuantity(){
-    this.product.quantity++;
+    this.cartListService.increaseQuantity(this.product);
+    this.updateTotals.emit();
   }
 
   decreaseQuantity()
   {
-    if (this.product.quantity > 1)
-      this.product.quantity--;
+    this.cartListService.decreaseQuantity(this.product);
+    this.updateTotals.emit();
   }
 
   removeProduct(product : CartProduct)
   {
-    this.productToRemove.emit(product);
+    this.cartListService.removeProduct(this.product);
+    this.updateTotals.emit();
   }
 
   @HostListener('mouseenter', ['$event']) onMouseEnter(event) {

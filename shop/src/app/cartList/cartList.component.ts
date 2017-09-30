@@ -15,22 +15,22 @@ export class CartListComponent {
   constructor(private cartListService: CartService) {}
 
   cartProducts: CartProduct[] = new Array<CartProduct>();
+  cartProductsCount:number;
+  cartProductsCost:number;
 
   refreshProductsInCart(): void {
      this.cartProducts = this.cartListService.getProducts();
+     this.updateTotals();
   }
 
- getTotalCost(): number {
-  return this.cartListService.getTotalCost();
- }
+  updateTotals(){
+    this.cartProductsCost = this.cartListService.getTotalCost(); 
+    this.cartProductsCount = this.cartListService.getTotalCount();
+  }
 
- getTotalCount(): number {
-  return this.cartListService.getTotalCount();
- }
-
- removeProduct(product : CartProduct)
+ clearCart()
  {
-    this.cartListService.removeProduct(product);
+    this.cartListService.clearCart();
     this.refreshProductsInCart();
  }
 }
